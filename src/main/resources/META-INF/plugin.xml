@@ -1,18 +1,22 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.hbmartin.intellijpluginevaluateselectedexpression</id>
-    <name>intellij-plugin-evaluate-selected-expression</name>
-    <vendor>hbmartin</vendor>
+    <id>me.haroldmartin.intellijpluginevaluateselectedexpression</id>
+    <name>Evaluate Selected Expression Inline</name>
+    <vendor email="me@haroldmartin.me" url="https://github.com/hbmartin/">Harold Martin</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.hbmartin.intellijpluginevaluateselectedexpression.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.hbmartin.intellijpluginevaluateselectedexpression.services.MyProjectService"/>
-    </extensions>
+    <description>
+        <![CDATA[
+          A plugin to evaluate a selected expression (i.e. math) and replace it inline.
+        ]]>
+    </description>
 
-    <applicationListeners>
-        <listener class="com.github.hbmartin.intellijpluginevaluateselectedexpression.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="EvaluateExpressionInline"
+                class="me.haroldmartin.intellijpluginevaluateselectedexpression.EvaluateExpression"
+                text="Evaluate Expression Inline"
+                description="Evaluate a selected expression and replace it inline">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>

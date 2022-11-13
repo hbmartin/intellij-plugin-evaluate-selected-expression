@@ -3,16 +3,14 @@ import org.jetbrains.changelog.markdownToHTML
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
-    // Java support
     id("java")
-    // Kotlin support
-    id("org.jetbrains.kotlin.jvm") version "1.7.10"
-    // Gradle IntelliJ Plugin
-    id("org.jetbrains.intellij") version "1.8.0"
-    // Gradle Changelog Plugin
+    id("org.jetbrains.kotlin.jvm") version "1.7.21"
+    id("org.jetbrains.intellij") version "1.9.0"
     id("org.jetbrains.changelog") version "1.3.1"
-    // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0-RC3"
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
+    id("com.github.ben-manes.versions") version "0.44.0"
 }
 
 group = properties("pluginGroup")
@@ -52,6 +50,17 @@ qodana {
     reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
     saveReport.set(true)
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = true
+
+    reports {
+        html.enabled = false
+        xml.enabled = false
+        txt.enabled = false
+    }
 }
 
 tasks {
