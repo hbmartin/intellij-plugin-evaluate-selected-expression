@@ -9,11 +9,12 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
+import javax.script.ScriptEngine
 import javax.script.ScriptEngineManager
 import javax.script.ScriptException
 
 class EvaluateExpression : AnAction("Evaluate Expression Inline") {
-    val scriptEngine = ScriptEngineManager().getEngineByName("JavaScript")
+    val scriptEngine: ScriptEngine = ScriptEngineManager().getEngineByName("JavaScript")
 
     override fun actionPerformed(event: AnActionEvent) {
         val editor: Editor = event.getRequiredData(CommonDataKeys.EDITOR)
