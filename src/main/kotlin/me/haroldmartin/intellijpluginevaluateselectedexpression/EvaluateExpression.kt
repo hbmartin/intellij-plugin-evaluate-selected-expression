@@ -24,6 +24,8 @@ class EvaluateExpression : AnAction("Evaluate Expression Inline") {
         val start: Int = primaryCaret.selectionStart
         val end: Int = primaryCaret.selectionEnd
 
+        if (start == end) return
+
         WriteCommandAction.runWriteCommandAction(
             project
         ) {

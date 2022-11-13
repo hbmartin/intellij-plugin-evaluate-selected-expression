@@ -4,17 +4,14 @@
 ![Linting](https://github.com/hbmartin/intellij-plugin-evaluate-selected-expression/workflows/Linting/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
-## Template ToDo list
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
+<img src="media/demo.gif" />
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+Easily find the result of a math or other expression right where you're working.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+Just select the text you want to evaluate and replace, then apply this action by searching for it (⌘-⇧-A) or assigning a keyboard shortcut in  Settings > Keymap
+
 <!-- Plugin description end -->
 
 ## Installation
