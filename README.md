@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/hbmartin/intellij-plugin-evaluate-selected-expression/workflows/Build/badge.svg)
 ![Linting](https://github.com/hbmartin/intellij-plugin-evaluate-selected-expression/workflows/Linting/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/20410-evaluate-selected-expression-inline.svg)](https://plugins.jetbrains.com/plugin/20410-evaluate-selected-expression-inline)
 
 <img src="media/demo.gif" />
 
