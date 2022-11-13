@@ -13,6 +13,8 @@ import javax.script.ScriptEngineManager
 import javax.script.ScriptException
 
 class EvaluateExpression : AnAction("Evaluate Expression Inline") {
+    val scriptEngine = ScriptEngineManager().getEngineByName("JavaScript")
+
     override fun actionPerformed(event: AnActionEvent) {
         val editor: Editor = event.getRequiredData(CommonDataKeys.EDITOR)
         val project: Project = event.getRequiredData(CommonDataKeys.PROJECT)
@@ -26,13 +28,12 @@ class EvaluateExpression : AnAction("Evaluate Expression Inline") {
             project
         ) {
             val expression = document.getText(TextRange(start, end))
-            val scriptEngineManager = ScriptEngineManager()
-            val scriptEngine = scriptEngineManager.getEngineByName("JavaScript")
+            @Suppress("SwallowedException")
             try {
                 val result = scriptEngine.eval(expression)
                 document.replaceString(start, end, result.toString())
             } catch (e: ScriptException) {
-                // invalid expression
+                // invalid expression, ignoring
             }
         }
 
