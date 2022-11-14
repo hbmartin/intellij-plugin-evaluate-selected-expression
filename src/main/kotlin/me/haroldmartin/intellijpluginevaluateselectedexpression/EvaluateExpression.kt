@@ -31,7 +31,7 @@ class EvaluateExpression : AnAction("Evaluate Expression Inline") {
         ) {
             val expression = document.getText(TextRange(start, end))
             val mx = Expression(expression)
-            @Suppress("SwallowedException")
+            @Suppress("SwallowedException", "TooGenericExceptionCaught")
             try {
                 val result = mx.calculate()
                 if (!Double.isNaN(result)) {
