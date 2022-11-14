@@ -9,13 +9,12 @@ import com.intellij.openapi.editor.Document
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.TextRange
-import javax.script.ScriptEngine
-import javax.script.ScriptEngineManager
-import javax.script.ScriptException
+import org.mariuszgromada.math.mxparser.Expression
+import java.lang.Double
+import kotlin.math.ceil
+import kotlin.math.floor
 
 class EvaluateExpression : AnAction("Evaluate Expression Inline") {
-    val scriptEngine: ScriptEngine = ScriptEngineManager().getEngineByName("JavaScript")
-
     override fun actionPerformed(event: AnActionEvent) {
         val editor: Editor = event.getRequiredData(CommonDataKeys.EDITOR)
         val project: Project = event.getRequiredData(CommonDataKeys.PROJECT)
@@ -31,11 +30,18 @@ class EvaluateExpression : AnAction("Evaluate Expression Inline") {
             project
         ) {
             val expression = document.getText(TextRange(start, end))
+            val mx = Expression(expression)
             @Suppress("SwallowedException")
             try {
-                val result = scriptEngine.eval(expression)
-                document.replaceString(start, end, result.toString())
-            } catch (e: ScriptException) {
+                val result = mx.calculate()
+                if (!Double.isNaN(result)) {
+                    if (floor(result) == ceil(result)) {
+                        document.replaceString(start, end, result.toInt().toString())
+                    } else {
+                        document.replaceString(start, end, result.toString())
+                    }
+                }
+            } catch (e: Exception) {
                 // invalid expression, ignoring
             }
         }

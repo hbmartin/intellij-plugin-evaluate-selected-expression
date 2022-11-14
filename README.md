@@ -12,6 +12,8 @@ Easily find the result of a math or other expression right where you're working.
 
 Just select the text you want to evaluate and replace, then apply this action by searching for it (⌘-⇧-A) or assigning a keyboard shortcut in  Settings > Keymap
 
+Supports all expressions valid with [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser)
+
 <!-- Plugin description end -->
 
 ## Installation

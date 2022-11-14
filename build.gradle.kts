@@ -120,3 +120,7 @@ tasks {
         channels.set(listOf(properties("pluginVersion").split('-').getOrElse(1) { "default" }.split('.').first()))
     }
 }
+
+dependencies {
+    implementation("org.mariuszgromada.math:MathParser.org-mXparser:5.1.0")
+}
