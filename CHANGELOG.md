@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [0.1.0] - 2022-11-14
+## [0.1.0] - 2022-11-18
 ### Added
 - Added [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser) support
 
