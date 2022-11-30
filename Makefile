@@ -15,6 +15,6 @@ pull:
 	git pull
 
 sign:
-	./gradlew assemble signPlugin
+	./gradlew buildPlugin signPlugin
 
 release: check-master check-unstaged pull lint tag sign
