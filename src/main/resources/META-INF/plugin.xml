@@ -11,12 +11,11 @@
         ]]>
     </description>
 
-    <actions>
-        <action id="EvaluateExpressionInline"
-                class="me.haroldmartin.intellijpluginevaluateselectedexpression.EvaluateExpression"
-                text="Evaluate Expression Inline"
-                description="Evaluate a selected expression and replace it inline">
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-        </action>
-    </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <intentionAction>
+            <language>KOTLIN</language>
+            <className>me.haroldmartin.intellijpluginevaluateselectedexpression.EvaluateExpression</className>
+            <category>SDK intentions</category>
+        </intentionAction>
+    </extensions>
 </idea-plugin>

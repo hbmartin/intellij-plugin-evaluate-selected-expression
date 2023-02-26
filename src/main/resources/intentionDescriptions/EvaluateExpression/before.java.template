@@ -1,0 +1,5 @@
+public class X {
+  void f() {
+    System.out.println("value = " + <spot>10 + 3</spot>);
+  }
+}
