@@ -13,7 +13,6 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
-            <language>KOTLIN</language>
             <className>me.haroldmartin.intellijpluginevaluateselectedexpression.EvaluateExpression</className>
             <category>Evaluate expression inline</category>
         </intentionAction>
